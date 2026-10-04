@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "datasets": {
+    "camus": {
+      "canonical_name": "CAMUS",
+      "official_landing_page": "https://www.creatis.insa-lyon.fr/Challenge/camus/",
+      "official_girder_api": "https://humanheart-project.creatis.insa-lyon.fr/database/api/v1",
+      "official_collection_id": "6373703d73e9f0047faa1bc8",
+      "database_nifti_folder_id": "63fde55f73e9f004868fb7ac",
+      "database_split_folder_id": "66e27d12961576b1bad4e4e1",
+      "expected_patients": 500,
+      "rerelease_split_counts": {
+        "train": 400,
+        "val": 50,
+        "test": 50
+      },
+      "access": "public; obey included license and citation terms",
+      "official_split_note": "Current official split archive states it corresponds to the Leclerc et al. paper, with a few later distribution corrections.",
+      "official_split_content_sha256": "d6d7240cdac2cbc276d72cb3ab872ab9ac3b3e3bdf417d6dabcc7413555ddb80",
+      "official_split_transport_hash_policy": "Do not treat the downloaded ZIP SHA256 as stable authority; the server may repack the same split content. Record transport SHA256 per download receipt, but validate canonical split content SHA256.",
+      "owner_recovery_snapshots": {
+        "huggingface_unpacked": {
+          "repo_id": "miyuki17/CAMUS_public",
+          "revision": "bd4fd12ae57e4b84259120e9845698f2031d00bf",
+          "role": "owner-controlled canonical unpacked NIfTI recovery snapshot",
+          "authority_boundary": "recovery/materialization only; CREATIS remains scientific source authority"
+        },
+        "huggingface_archive": {
+          "repo_id": "miyuki17/camus_public_20250706",
+          "revision": "6ace0dc4943314db5fccb67ccd443229cddb6830",
+          "payload": "CAMUS_public.zip",
+          "role": "owner-controlled compressed source snapshot",
+          "authority_boundary": "recovery/materialization only; verify payload before use",
+          "payload_bytes": 3758786770,
+          "sha256": "18527a07bf08339ce0c42951fc3fe79887f6f8215cdf7f31af80090443a74180",
+          "xet_hash": "a330a381f0950c6b432084692f4475a4d6b9709fbde3efe7eb3173460c5e6378",
+          "payload_commit": "6ace0dc4943314db5fccb67ccd443229cddb6830"
+        }
+      }
+    },
+    "echonet_dynamic": {
+      "canonical_name": "EchoNet-Dynamic",
+      "official_landing_page": "https://echonet.github.io/dynamic/",
+      "official_current_access": "Stanford AIMI / Redivis registration",
+      "expected_videos": 10030,
+      "official_split_counts": {
+        "TRAIN": 7465,
+        "VAL": 1288,
+        "TEST": 1277
+      },
+      "access": "individual Research Use Agreement; do not redistribute data or download links",
+      "local_authorized_archive_candidate": {
+        "observed_path_hint": "user-local private archive; do not publish path as a download source",
+        "sha256": "326939c379801daab839233a35613ca9e5d15529c758fe11e31f798b62a462b4",
+        "archive_bytes_approx": "6.6 GiB",
+        "filelist_rows": 10030,
+        "avi_files": 10030,
+        "volume_tracing_rows": 425010,
+        "tracing_files": 10025
+      },
+      "segmentation_eligible_counts": {
+        "TRAIN": 7460,
+        "VAL": 1288,
+        "TEST": 1276
+      },
+      "filelist_without_traces": [
+        "0X234005774F4CB5CD.avi",
+        "0X2DC68261CBCC04AE.avi",
+        "0X35291BE9AB90FB89.avi",
+        "0X5515B0BD077BE68A.avi",
+        "0X5DD5283AC43CCDD1.avi",
+        "0X6C435C1B417FDE8A.avi"
+      ],
+      "orphan_tracing_without_filelist_or_video": [
+        "0X4F8859C8AB4DA9CB.avi"
+      ],
+      "owner_recovery_snapshots": {
+        "huggingface_unpacked": {
+          "repo_id": "miyuki17/EchoNet-Dynamic-unzipped",
+          "revision": "e5eb1aa94d60be651b451d3b62b3e89d75a144a2",
+          "role": "owner-controlled unpacked recovery snapshot",
+          "authority_boundary": "internal authorized recovery only; not a public acquisition route"
+        },
+        "huggingface_archive": {
+          "repo_id": "miyuki17/EchoNet-Dynamic-zip",
+          "revision": "cc64e45c68ba43b5856734c8dd1c30c4f4e9b866",
+          "payload": "EchoNet-Dynamic.zip",
+          "payload_bytes": 7038260018,
+          "sha256": "326939c379801daab839233a35613ca9e5d15529c758fe11e31f798b62a462b4",
+          "role": "owner-controlled compressed recovery snapshot",
+          "authority_boundary": "internal authorized recovery only; public instructions remain Stanford RUA",
+          "xet_hash": "7c3b739b1b884dd9596c90ead9c46b56800141f2fc05681e1004770e15e975c6",
+          "payload_commit": "727aab21d8edf2cb5c222b7b64737fe8adc6aef1"
+        }
+      }
+    }
+  }
+}

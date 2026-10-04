@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "lanes": {
+    "historical": {
+      "role": "historical reproduction evidence",
+      "candidates": [
+        {
+          "pytorch": "2.6.0",
+          "cuda_wheel": "cu118",
+          "status": "historical-captured-environment"
+        },
+        {
+          "pytorch": "2.6.0",
+          "cuda_wheel": "cu126",
+          "status": "cross-version-bridge-qualification"
+        }
+      ]
+    },
+    "compatibility": {
+      "role": "historical/compatibility investigation; not a v1 supported-runtime claim",
+      "candidates": [
+        {
+          "pytorch": "2.6.0",
+          "cuda_wheel": "cu126",
+          "status": "unqualified-no-real-rtx3090-host"
+        }
+      ],
+      "notes": [
+        "PyTorch 2.6 official wheels stop at CUDA 12.6.",
+        "RTX 5090/sm_120 requires CUDA 12.8+; therefore LYG RTX 5090 cannot substitute for a real RTX 3090/Ampere compatibility qualification."
+      ]
+    },
+    "modern": {
+      "role": "modern optimized release candidate",
+      "candidates": [
+        {
+          "pytorch": "2.14.0",
+          "cuda_wheel": "cu130",
+          "status": "LYG-RTX5090-eager-qualified-compile-default-optional",
+          "rationale": "RTX 5090 is Blackwell sm_120; CUDA 12.8+ is required, so cu126 is not a valid LYG Gate B candidate.",
+          "evidence": "repro/receipts/lyg-pytorch214-cu130-rtx5090-gdkvm-forward-20261001.json"
+        },
+        {
+          "pytorch": "2.14.0",
+          "cuda_wheel": "cu132",
+          "status": "alternate-modern-candidate"
+        }
+      ],
+      "notes": [
+        "On LYG RTX 5090, eager and compile-default GDKVM forward paths execute under PyTorch 2.14.0+cu130.",
+        "compile-default has a large cold-start cost and is not the reference/default path.",
+        "reduce-overhead is currently unsupported because CUDA Graph lifetime conflicts with persistent positional-encoding cache state.",
+        "Tiny synthetic training screening did not show a channels-last, FP16, or BF16 advantage over FP32 eager; these remain opt-in until real workload qualification."
+      ]
+    }
+  },
+  "compile_modes": [
+    "eager",
+    "default",
+    "reduce-overhead",
+    "max-autotune",
+    "max-autotune-no-cudagraphs"
+  ],
+  "rules": {
+    "eager_is_reference": true,
+    "public_default_requires_correctness_and_perf_evidence": true,
+    "host_driver_change_authorized": false,
+    "compatibility_3090_requires_real_3090_qualification": true,
+    "compile_default_is_optional_long_run_candidate": true,
+    "reduce_overhead_supported": false,
+    "reference_channels_last_default": false,
+    "amp_is_opt_in_until_real_training_qualification": true,
+    "v1_reference_profile": "single-gpu-eager-contiguous-fp32",
+    "v1_ddp_claim": false,
+    "v1_real_3090_claim": false,
+    "full_release_environment_python": "3.12"
+  },
+  "updated": "2026-10-01",
+  "notes": {
+    "modern_current_official": "PyTorch 2.14.0; initial common CUDA wheel candidate cu126",
+    "compile_modes_source": "public torch.compile modes; eager is the non-compiled reference"
+  }
+}

@@ -1,0 +1,12 @@
+# Install PyTorch separately for the intended runtime before this file.
+# Reference modern release qualification: Python 3.12 + PyTorch 2.14.
+numpy>=2.1,<2.4
+scipy>=1.16.3,<2
+scikit-image>=0.25,<1
+monai>=1.5.1,<2
+omegaconf>=2.3,<3
+opencv-python-headless>=4.10,<5
+nibabel>=5.2,<6
+Pillow>=10,<13
+matplotlib>=3.9,<4
+GitPython>=3.1,<4

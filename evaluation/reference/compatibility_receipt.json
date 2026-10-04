@@ -1,0 +1,31 @@
+{
+  "clinical_abs_diff": {
+    "bias": 0.0,
+    "loa_high": 0.0,
+    "loa_low": 0.0,
+    "lvef_bias_pp": 0.0,
+    "lvef_mae_pp": 0.0,
+    "lvef_sd_pp": 0.0,
+    "mae": 0.0,
+    "pearson_r": 0.0,
+    "r2": 0.0,
+    "rmse": 0.0,
+    "sample_sd": 0.0
+  },
+  "passed": true,
+  "protocol_id": "gdkvm-rerelease-v1",
+  "seed": 20260930,
+  "segmentation_cases": 69,
+  "segmentation_max_abs_diff": {
+    "asd": 0.0,
+    "dice": 0.0,
+    "hd": 0.0,
+    "hd95": 0.0,
+    "iou": 0.0
+  },
+  "status_matches": 69,
+  "tolerance": 1e-12,
+  "upstream_commit": "25b0e5ec7ca72093330f6d30db0760ab0671fa7f",
+  "upstream_reference_version": "1.1.0",
+  "upstream_repository": "wangrui2025/awesome-echocardiography"
+}

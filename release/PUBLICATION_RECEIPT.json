@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "kind": "gdkvm-publication-execution",
+  "published_at_utc": "2026-10-04T05:12:55.075928+00:00",
+  "owner_publication_approval": true,
+  "source_private_authority": "mykcs/gdkvm-rerelease",
+  "tested_public_snapshot_source_sha": "a4b11faa25440844e68a8f81a9b55b2774866386",
+  "clean_snapshot_file_count_before_publication_receipt": 111,
+  "scan_findings": 0,
+  "checkpoint": {
+    "filename": "gdkvm_rerelease_camus_v1_main_training_ckpt_3000.pth",
+    "bytes": 421645549,
+    "sha256": "61b27142ab7ce88cd118e2f11f80c692c4f5696d1d57a399a6d8408fb82d7b57",
+    "license_policy": "CC BY-NC-SA 4.0 / non-commercial scientific research with CAMUS attribution"
+  },
+  "private_authority_visibility_change": false,
+  "datasets_redistributed": false
+}

@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "candidate_id": "gdkvm-rerelease-v1-rc-20261001",
+  "technical_package_status": "technical-rc-refresh-pending",
+  "publication_status": "awaiting-owner-approval",
+  "reference_contract": {
+    "eval_protocol_id": "gdkvm-rerelease-v1",
+    "dataset_release_id": "gdkvm-rerelease-v1-data",
+    "python": "3.12",
+    "runtime": "single-gpu-eager-contiguous-fp32",
+    "checkpoint_sha256": "61b27142ab7ce88cd118e2f11f80c692c4f5696d1d57a399a6d8408fb82d7b57"
+  },
+  "predecessor_workstreams": {
+    "3_metrics": "merged",
+    "4_baseline_measurement": "merged",
+    "7_data": "merged",
+    "8_observability": "merged",
+    "5_code_optimization": "merged",
+    "6_runtime": "merged",
+    "7_retraining": "merged"
+  },
+  "publication_blockers": [
+    "owner-publication-approval-required"
+  ],
+  "checkpoint_publication_policy": {
+    "source_code_license": "Apache-2.0",
+    "checkpoint_policy": "CC-BY-NC-SA-4.0 / non-commercial scientific research",
+    "basis": "conservative release policy reflecting CAMUS source terms; not a legal determination about model-weight derivative status",
+    "camus_citation_required": true
+  },
+  "non_claims": [
+    "no renewed RTX 3090 throughput claim",
+    "no DDP support claim",
+    "new v1 results are not the original ICCV 2025 paper results",
+    "single-view-area-length-v1 is not biplane Simpson"
+  ],
+  "qualified_environment": {
+    "python": "3.12.4",
+    "torch": "2.14.0+cu130",
+    "cuda_runtime": "13.0",
+    "gpu": "NVIDIA GeForce RTX 5090",
+    "evidence": "repro/receipts/release-python312-gpu-fresh-install-lyg-20261001.json"
+  },
+  "scientific_rc_evidence": [
+    "repro/receipts/lyg-camus-formal-training-20261001.json",
+    "repro/receipts/lyg-camus-formal-evaluation-20261001.json",
+    "repro/receipts/lyg-camus-formal-artifact-registration-20261001.json"
+  ],
+  "technical_rc_evidence": [
+    "repro/receipts/release-clean-room-final-20261001.json",
+    "repro/receipts/release-python312-gpu-fresh-install-lyg-20261001.json"
+  ]
+}

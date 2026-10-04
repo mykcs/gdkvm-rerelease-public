@@ -1,0 +1,157 @@
+{
+  "checkpoint": {
+    "byte_size": 421645549,
+    "filename": "gdkvm_rerelease_camus_v1_main_training_ckpt_3000.pth",
+    "role": "gdkvm-rerelease-candidate",
+    "sha256": "61b27142ab7ce88cd118e2f11f80c692c4f5696d1d57a399a6d8408fb82d7b57"
+  },
+  "data": {
+    "test": {
+      "data_protocol_id": null,
+      "dataset": "CAMUS",
+      "format": "contiguous-npy",
+      "manifest_sha256": "f2d6646b82af292bc576bb6218fc26b822b6bf3cf7ed21463abe82a9179ec613",
+      "partial_source": false,
+      "patient_count": 50,
+      "sample_count": 100,
+      "selection": null,
+      "shape": [
+        100,
+        10,
+        256,
+        256
+      ],
+      "source_is_full_video_tree": null,
+      "split": "test"
+    },
+    "train": {
+      "data_protocol_id": null,
+      "dataset": "CAMUS",
+      "format": "contiguous-npy",
+      "manifest_sha256": "8060b15ad33bd190cc9dc52fbffd20f9c9ab219644328533a00fd8f9bc55523e",
+      "partial_source": false,
+      "patient_count": 400,
+      "sample_count": 800,
+      "selection": null,
+      "shape": [
+        800,
+        10,
+        256,
+        256
+      ],
+      "source_is_full_video_tree": null,
+      "split": "train"
+    },
+    "val": {
+      "data_protocol_id": null,
+      "dataset": "CAMUS",
+      "format": "contiguous-npy",
+      "manifest_sha256": "5bc6998c58e456a748b19ef00fb0f8e9c37ae4e55f1eeda0f6b962f47527157d",
+      "partial_source": false,
+      "patient_count": 50,
+      "sample_count": 100,
+      "selection": null,
+      "shape": [
+        100,
+        10,
+        256,
+        256
+      ],
+      "source_is_full_video_tree": null,
+      "split": "val"
+    }
+  },
+  "environment": {
+    "cuda_runtime": "13.0",
+    "gpu": "NVIDIA GeForce RTX 5090",
+    "gpu_total_memory_bytes": 33711521792,
+    "python": "3.12.4",
+    "torch": "2.14.0+cu130"
+  },
+  "identity": {
+    "code_sha": "264d3d64d7b102ec43c3b150cbf6695e4d125b8a",
+    "config_sha256": "8aef6f7a9383e55485c2c5108cf7c84d76383bdbba2b2c812ca1eb15efcca645",
+    "dataset_release_id": "gdkvm-rerelease-v1-data",
+    "eval_protocol_id": "gdkvm-rerelease-v1",
+    "runtime_profile": "3090-like-eager-fp32",
+    "seed": 42
+  },
+  "kind": "gdkvm-rerelease-training",
+  "measurement": {
+    "elapsed_s": null,
+    "health_gate_pass": true,
+    "last_train_loss": 0.08598148822784424,
+    "nonfinite_loss_count": 0,
+    "observed_log_wall_clock_s": 2296.156,
+    "peak_memory_allocated_bytes": null,
+    "peak_memory_reserved_bytes": null
+  },
+  "recovery": {
+    "durable_evidence": {
+      "config": "config.resolved.yaml",
+      "events": "events.jsonl",
+      "final_checkpoint": "checkpoints/gdkvm_rerelease_camus_v1_main_training_ckpt_3000.pth",
+      "log": "train.log",
+      "stdout": "../camus-formal-v1-264d3d6.stdout"
+    },
+    "note": "Null process-local fields are intentional; no values were guessed after process exit.",
+    "original_failure": "TypeError: Object of type float32 is not JSON serializable",
+    "reason": "The 3000-step process completed training, final val/test evaluation, and final checkpoint save, then failed while JSON-serializing numpy.float32 values in trainer_health_metrics.",
+    "receipt_recovered_after_completed_run": true,
+    "receipt_recovery_code_sha": "54e64258ffa34ed8943c67696aa54ac47144e49a",
+    "unrecoverable_original_process_local_fields": [
+      "measurement.elapsed_s",
+      "measurement.peak_memory_allocated_bytes",
+      "measurement.peak_memory_reserved_bytes"
+    ]
+  },
+  "schema_version": 1,
+  "status": "completed",
+  "trainer_health_metrics": {
+    "test": {
+      "acc": 0.9891068935394287,
+      "assd": 2.149373769760132,
+      "dice": 0.9367209076881409,
+      "f1": 0.9388245344161987,
+      "hd95": 5.793995380401611,
+      "iou": 0.882789134979248,
+      "lvef_bias": -0.014685354195535183,
+      "lvef_corr": 0.7524373398631867,
+      "lvef_mae": 0.05912846699357033,
+      "lvef_std": 0.11060816049575806,
+      "precision": 0.94034343957901,
+      "recall": 0.9373103976249695,
+      "sp": 0.9941781163215637
+    },
+    "val": {
+      "acc": 0.9881921410560608,
+      "assd": 2.3284435272216797,
+      "dice": 0.9363793730735779,
+      "f1": 0.9416054487228394,
+      "hd95": 6.475127696990967,
+      "iou": 0.8830322027206421,
+      "lvef_bias": -0.012740738689899445,
+      "lvef_corr": 0.7376660505966852,
+      "lvef_mae": 0.07179027795791626,
+      "lvef_std": 0.10733698308467865,
+      "precision": 0.9464857578277588,
+      "recall": 0.9367752075195312,
+      "sp": 0.9940085411071777
+    },
+    "warning": "Trainer health metrics are not the final gdkvm-rerelease-v1 publication evaluator."
+  },
+  "workload": {
+    "amp": false,
+    "augmentation": "none",
+    "batch_size": 10,
+    "crop_size": [
+      256,
+      256
+    ],
+    "memory_fraction": 0.7325703688007512,
+    "memory_limit_gib": 23.0,
+    "num_iterations": 3000,
+    "pretrained_backbones": true,
+    "sequence_length": 10
+  }
+}

@@ -1,0 +1,4 @@
+# Optional dashboards / local visualization / cache benchmarking.
+wandb>=0.18,<1
+tensorboard>=2.18,<3
+zarr>=3,<4

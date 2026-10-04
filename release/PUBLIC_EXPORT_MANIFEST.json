@@ -1,0 +1,10 @@
+{
+  "file_count": 111,
+  "note": "Clean allowlisted source snapshot approved for public release. Checkpoint is released separately under its checkpoint-specific policy; datasets are not redistributed.",
+  "owner_publication_approval": true,
+  "publication_ready": true,
+  "publication_receipt": "release/PUBLICATION_RECEIPT.json",
+  "scan_findings": [],
+  "schema_version": 1,
+  "source": "private-gdkvm-rerelease-authority"
+}

@@ -1,0 +1,57 @@
+protocol_id: gdkvm-rerelease-v1
+status: current_when_merged
+semantic_reference:
+  repository: wangrui2025/awesome-echocardiography
+  commit: 25b0e5ec7ca72093330f6d30db0760ab0671fa7f
+  reference_version: 1.1.0
+  path: reference/metrics_v1
+
+segmentation:
+  core:
+    - dice
+    - hd95
+    - asd
+  compatibility:
+    - iou
+    - hd
+  mandatory_surface_spacing_units: true
+  empty_mask_policy: awesome-echocardiography-v1.1
+  aggregation_unit: patient_or_video
+  preserve_axes:
+    - dataset
+    - patient_or_video
+    - structure
+    - view
+    - phase_or_annotated_frame
+  uncertainty:
+    patient_level_bootstrap_95ci: recommended
+
+clinical:
+  lvef_required:
+    - mae
+    - pearson_r
+    - bias_prediction_minus_reference
+    - paired_difference_sample_sd
+    - bland_altman_95loa
+  lvef_secondary:
+    - rmse
+    - r2
+  require_upstream_volume_or_surrogate_method: true
+
+historical:
+  protocol_id: gdkvm-historical-iccv2025
+  never_silently_overwrite_published_numbers: true
+
+not_mandatory_in_v1:
+  - normalized_surface_dice_without_justified_tolerance
+  - temporal_consistency_as_primary_accuracy_metric
+
+external_protocol_fields:
+  - dataset_release
+  - split
+  - resize
+  - interpolation
+  - frame_selection
+  - temporal_sampling
+  - postprocessing
+  - volume_reconstruction

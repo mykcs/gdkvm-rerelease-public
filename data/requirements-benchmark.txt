@@ -1,0 +1,2 @@
+-r requirements.txt
+zarr>=3,<4

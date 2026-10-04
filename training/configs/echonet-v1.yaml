@@ -1,0 +1,76 @@
+schema_version: 1
+exp_id: gdkvm_rerelease_echonet_v1
+seed: 42
+dataset_release_id: gdkvm-rerelease-v1-data
+eval_protocol_id: gdkvm-rerelease-v1
+
+model:
+  model_type: base
+  image_encoder_type: resnet50
+  mask_encoder_type: resnet18
+  pretrained_backbones: true
+  aux_loss:
+    sensory:
+      weight: 0.01
+    query:
+      weight: 0.01
+
+runtime:
+  profile_id: 3090-like-eager-fp32
+  channels_last: false
+  cudnn_benchmark: false
+  compile:
+    enabled: false
+    mode: default
+    fullgraph: false
+    dynamic: null
+    optimize_ddp: false
+
+training:
+  memory_limit_gib: 23.0
+  batch_size: 10
+  num_workers: 8
+  prefetch_factor: 2
+  pin_memory: true
+  num_iterations: 3000
+  checkpoint_interval: 250
+  keep_last_n_checkpoints: 3
+  eval_interval: 250
+
+main_training:
+  name: main_training
+  amp: false
+  num_iterations: 3000
+  learning_rate: 1.0e-4
+  lr_schedule: step
+  lr_schedule_steps: [1000, 2000]
+  lr_schedule_gamma: 0.1
+  clip_grad_norm: 3.0
+  weight_decay: 0.001
+  embed_weight_decay: 0.0
+  backbone_lr_ratio: 0.1
+  point_supervision: true
+  train_num_points: 4096
+  oversample_ratio: 3.0
+  importance_sample_ratio: 0.75
+  seq_length: 10
+  num_objects: 1
+  crop_size: [128, 128]
+
+eval_stage:
+  name: eval_stage
+  num_vis: 0
+
+data:
+  label: 1
+  augmentation: none
+  expected_samples:
+    train: 7460
+    val: 1288
+    test: 1276
+  note: "EchoNet cache contains ED/ES labels only; training protocol must remain explicit"
+
+logging:
+  tensorboard: false
+  wandb: false
+  log_text_interval: 10
