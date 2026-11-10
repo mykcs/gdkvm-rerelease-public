@@ -13,3 +13,7 @@ Before changing content or code:
 Private remediation, unpublished evidence, credentials, internal infrastructure details, and sensitive artifacts belong in their private owners, especially `mykcs/gdkvm-rerelease`. Do not copy them here merely to make the public repository self-contained.
 
 Never fabricate benchmark results or loosen reproducibility claims to simplify release.
+
+## Current | 多 Agent 接手
+
+新 Agent 先读 [Current](docs/agents/current/README.md)，重新核对 GitHub 的实时 Issues、PR 和默认分支；Current 只负责恢复上下文，不取代现有 Wish/Dev、科研或发布规则。
